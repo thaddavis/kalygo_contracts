@@ -8,6 +8,9 @@ packages = [{include = "escrow_revolutionized"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+py-algorand-sdk = "^1.20.2"
+pyteal = "^0.20.1"
+autopep8 = "^2.0.1"
 
 
 [build-system]
