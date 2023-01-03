@@ -1,7 +1,7 @@
 from algosdk.v2client import algod
 from algosdk import account
 from algosdk.future import transaction
-from contracts.escrow.contract import approval, clear
+from contracts.smoke_test.contract import approval, clear
 from pyteal import compileTeal, Mode
 from helpers.utils import compile_program, wait_for_confirmation, read_created_app_state, get_private_key_from_mnemonic
 import json
@@ -16,7 +16,7 @@ headers = {
 def main():
     algod_client = algod.AlgodClient(
         config.algod_token, config.algod_url, headers)
-    creator_private_key = get_private_key_from_mnemonic(
+    deployer_private_key = get_private_key_from_mnemonic(
         config.account_a_mnemonic
     )
 
@@ -53,7 +53,7 @@ def main():
 
     app_args = []
 
-    sender = account.address_from_private_key(creator_private_key)
+    sender = account.address_from_private_key(deployer_private_key)
 
     on_complete = transaction.OnComplete.NoOpOC.real
     params = algod_client.suggested_params()
@@ -69,13 +69,12 @@ def main():
         global_schema,
         local_schema,
         app_args,
-        foreign_apps=[config.ASA_1, config.ASA_2,
-                      config.pool_1_app_id, config.pool_2_app_id]
+        foreign_apps=[]
     )
     print("creating")
 
     # sign transaction
-    signed_txn = txn.sign(creator_private_key)
+    signed_txn = txn.sign(deployer_private_key)
     tx_id = signed_txn.transaction.get_txid()
 
     # send transaction
@@ -92,7 +91,7 @@ def main():
 
     created_app_state = read_created_app_state(
         algod_client, account.address_from_private_key(
-            creator_private_key), app_id
+            deployer_private_key), app_id
     )
 
     print("Global state: {}".format(
