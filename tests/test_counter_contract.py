@@ -3,7 +3,7 @@ from scripts.deploy_new import main as deploy
 from algosdk.v2client import algod
 from algosdk import account
 from algosdk.future import transaction
-import config_localhost as config
+import config.config_localhost as config
 from helpers.utils import format_application_info_global_state, get_private_key_from_mnemonic, wait_for_confirmation
 import json
 

@@ -15,7 +15,7 @@ pyteal = "^0.20.1"
 autopep8 = "^2.0.1"
 
 [tool.poetry.scripts]
-deploy = "scripts.deploy_new:main"
+deploy = "scripts.deploy.escrow.deploy_new:main"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"
