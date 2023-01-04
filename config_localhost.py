@@ -11,7 +11,3 @@ account_b_address = ""
 account_b_mnemonic = ""
 account_c_address = ""
 account_c_mnemonic = ""
-ASA_1 = 340
-ASA_2 = 341
-pool_1 = None
-pool_2 = None

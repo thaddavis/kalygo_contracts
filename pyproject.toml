@@ -4,7 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
-packages = [{include = "escrow_revolutionized"}]
+packages = [
+    {include = "scripts"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -12,6 +14,12 @@ py-algorand-sdk = "^1.20.2"
 pyteal = "^0.20.1"
 autopep8 = "^2.0.1"
 
+[tool.poetry.scripts]
+deploy = "scripts.deploy_new:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core"]
