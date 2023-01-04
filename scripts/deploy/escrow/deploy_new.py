@@ -91,8 +91,9 @@ def main():
         local_schema,
         app_args,
         foreign_apps=[
-            # config.stablecoin_ASA
-        ]
+            config.stablecoin_ASA
+        ],
+        foreign_assets=[]
     )
     print("creating")
 

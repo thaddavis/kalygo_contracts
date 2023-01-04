@@ -2,11 +2,12 @@ from algosdk.v2client import algod
 from algosdk import account
 from algosdk.future import transaction
 from pyteal import compileTeal, Mode
+from algosdk.encoding import decode_address
 from helpers.utils import compile_program, wait_for_confirmation, read_created_app_state, get_private_key_from_mnemonic
 import json
 import config.config_localhost as config
 
-from contracts.escrow.contract import approval, clear
+from contracts.counter.contract import approval, clear
 
 local_ints = 0
 local_bytes = 0
@@ -20,6 +21,7 @@ headers = {
 def main():
     algod_client = algod.AlgodClient(
         config.algod_token, config.algod_url, headers)
+    deployer_address = config.account_a_address
     deployer_private_key = get_private_key_from_mnemonic(
         config.account_a_mnemonic
     )
@@ -51,7 +53,9 @@ def main():
         algod_client, clear_state_program_teal
     )
 
-    app_args = []
+    app_args = [
+        decode_address(deployer_address)
+    ]
 
     sender = account.address_from_private_key(deployer_private_key)
 

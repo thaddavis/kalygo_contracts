@@ -1,5 +1,5 @@
 import pytest
-from scripts.deploy_new import main as deploy
+from scripts.deploy.counter.deploy_new import main as deploy
 from algosdk.v2client import algod
 from algosdk import account
 from algosdk.future import transaction
