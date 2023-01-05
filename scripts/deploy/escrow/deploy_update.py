@@ -3,7 +3,11 @@ from algosdk import account
 from algosdk.future import transaction
 from contracts.escrow.contract import approval, clear
 from pyteal import compileTeal, Mode
-from helpers.utils import compile_program, wait_for_confirmation, get_private_key_from_mnemonic
+from helpers.utils import (
+    compile_program,
+    wait_for_confirmation,
+    get_private_key_from_mnemonic,
+)
 import json
 
 import config.config_localhost as config
@@ -14,11 +18,8 @@ headers = {
 
 
 def main():
-    algod_client = algod.AlgodClient(
-        config.algod_token, config.algod_url, headers)
-    creator_private_key = get_private_key_from_mnemonic(
-        config.account_a_mnemonic
-    )
+    algod_client = algod.AlgodClient(config.algod_token, config.algod_url, headers)
+    creator_private_key = get_private_key_from_mnemonic(config.account_a_mnemonic)
 
     # declare application state storage (immutable)
     local_ints = 0
@@ -33,18 +34,17 @@ def main():
         approval_program_ast, mode=Mode.Application, version=6
     )
 
-    with open('./build/approval.teal', "w") as h:
+    with open("./build/approval.teal", "w") as h:
         h.write(approval_program_teal)
 
-    approval_program_compiled = compile_program(
-        algod_client, approval_program_teal)
+    approval_program_compiled = compile_program(algod_client, approval_program_teal)
 
     clear_state_program_ast = clear()
     clear_state_program_teal = compileTeal(
         clear_state_program_ast, mode=Mode.Application, version=6
     )
 
-    with open('./build/clear.teal', "w") as h:
+    with open("./build/clear.teal", "w") as h:
         h.write(clear_state_program_teal)
 
     clear_state_program_compiled = compile_program(
@@ -66,8 +66,7 @@ def main():
         approval_program_compiled,
         clear_state_program_compiled,
         app_args,
-        foreign_apps=[config.ASA_1, config.ASA_2,
-                      config.pool_1_app_id, config.pool_2_app_id]
+        foreign_apps=[],
     )
     print("Updating...")
 

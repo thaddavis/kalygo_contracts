@@ -12,5 +12,6 @@ Refer to the various markdowns in the READMEs folder.
 - poetry run pytest <!-- test WITHOUT console output -->
 - poetry run pytest -s <!-- test with console output -->
 - poetry run pytest tests/counter_contract/test_counter_contract.py
+- poetry run pytest tests/escrow_contract/test_escrow_contract.py
 - poetry run pytest tests/test_counter_contract.py::Test_Counter_Contract
 - poetry run pytest tests/test_counter_contract.py::Test_Counter_Contract::test_initial_state

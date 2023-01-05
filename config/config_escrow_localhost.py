@@ -1,4 +1,4 @@
-env = 'TestNet'
+env = "TestNet"
 algod_url = "http://localhost:4001"
 algod_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 indexer_url = "http://localhost:8980"
@@ -13,3 +13,7 @@ account_c_address = "YI4HKJS6CK25QGLGM5LISDLEDYK65GN3DWI2GFZEXLMC7UMMD5RB3Z5P7A"
 account_c_mnemonic = "dish ocean tenant mad wine vote abuse jeans shove ignore sword door daring document bamboo orbit tip tenant payment test spirit culture vote about social"
 
 stablecoin_ASA = 123
+
+escrow_payment_1 = 1000000
+escrow_payment_2 = 2000000
+total_price = 3000000
