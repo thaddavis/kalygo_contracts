@@ -8,12 +8,12 @@ indexer_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 app_id = 71
 wallet_id = "wallet_QWEASD"
 wallet_phrase = ""
-account_a_address = "NZVTS344EXINBTNGASXMYFFJRM3JLACUOCJIQDFUGXCLHUPEJG4MIX2QFM"
-account_a_mnemonic = "hello reflect virtual speak small obvious case now guard cluster minimum there fury smoke erode second middle canvas magic mind review razor own ability fade"
-account_b_address = "QUAZ3SRNA6NCZYS7BF6IJUIJCZ3B6BYPTGCJWLYZBMU3YCSQ5NXGXHYE7I"
-account_b_mnemonic = "phrase shaft patrol fringe aware obscure skate thrive drop gap keen humor bargain vibrant ugly clog tower february transfer sadness dry text tail abandon torch"
-account_c_address = "BUXVYCHS5PBKOPYAXZDU76AHELCCFVNIONQ7J36B5S2OTEBZAK5VCJKX7M"
-account_c_mnemonic = "usage fee today ranch canyon stool admit purse action miss area install impulse flash hedgehog dinner average sound edit tissue student escape conduct abandon often"
+account_a_address = "5NCUXD7FKRPUFVWV7222EAFGUWIPLT4DXDBQTKR2HRBA6WYH5N6CD2WPJU"
+account_a_mnemonic = "script autumn alter today father dutch panel abstract culture other lock program moment hazard cushion bleak home close front insane bacon tackle liberty abandon scan"
+account_b_address = "CV3VWUK42V3Z5CIBEXGJ2PDPXJ6BXRD3NBHPYHYWX7BUKF3OEWJB5FYRCA"
+account_b_mnemonic = "fan share special pipe picture upper unlock include mutual rotate syrup build garage exhaust diary goose add useful strong vote shallow employ deliver abandon remove"
+account_c_address = "LYXRALTCRQQSSUUQ5ZU37SU2YSYQHEADATXK5WO643XQZ36EJTNU3YFIPM"
+account_c_mnemonic = "inside foam divert spy stamp laugh praise burger reason recipe urban rival side announce recycle pill pen say catch raccoon twist hedgehog panic abandon wreck"
 
 stablecoin_ASA = 10
 

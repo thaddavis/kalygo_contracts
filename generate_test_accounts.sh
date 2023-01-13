@@ -67,3 +67,19 @@ echo ""
 account_c_balance=`goal account balance -a $account_c`
 echo "account c balance: $account_c_balance"
 echo ""
+
+# Create Stablecoin ASA
+goal asset create \
+--asseturl "https://www.circle.com" \
+--creator $account_c \
+--decimals 2 \
+--name "USDCa" \
+--total 1000000000 \
+--unitname "USDCa" \
+--out "unsigned_asset_creation.tx"
+
+goal clerk sign -w wallet_QWEASD -i unsigned_asset_creation.tx -o signed_asset_creation.tx
+
+goal clerk rawsend -w wallet_QWEASD -f signed_asset_creation.tx
+
+goal asset info --creator $account_c --unitname "USDCa"
