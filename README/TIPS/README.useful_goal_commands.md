@@ -13,7 +13,7 @@
 - ./sandbox goal account list
 - SENDER_ACCOUNT=FXPAVJ5QYIPPXRBXMLAIPCMBB72RMZDC5TNFBDAVD22N7ODY6NFYDUHIL4
 - RECEIVER_ACCOUNT=CJIU6KXJWOYACFLDMEQOJETA4PO3MXYLTH7TRHRZIODVWU47QYZBBVY6L4
-- ./sandbox goal clerk send -a 100000000 -f TW6XVPVWA2WH6G4UDWACQM7W4WW2SX756764UFAPS77OKY4PM3PO3QEVPQ -t GVPNGHFMZAFO3ZWXJKQ532T562RJOY7HMCY3PX7BVIVED5SMZXP5ECCWX4 // Accounts must have a minimum of 100,000 mAlgos to reside onchain
+- ./sandbox goal clerk send -a 10000000000 -f CJC25URJGTAXE7VQ5GEDMPV2SLGSAR2SOFXQFAQ3I73P2CXU3XUEKIPL2U -t RYMIOXYHNX5WEJRAEODXBSWX4LFVRR7LBRWEJ74NVKPMBLRVRRA7I2UNMU // Accounts must have a minimum of 100,000 mAlgos to reside onchain
 - ./sandbox goal account list // verification
 
 ## rename account
@@ -59,5 +59,5 @@ goal account new -w wallet_QWEASD
 goal wallet new wallet_QWEASD
 
 ```will provide a wallet seed phrase
-motor series ripple elbow wrist cabbage elite gun debris meat force parade crazy age ocean exile bottom resemble flower whale strike assume balcony abandon subject
+wine sample method there olive type minute wire expect employ blast asthma year system plug club job arrive cram find atom spring claim ability mail
 ```

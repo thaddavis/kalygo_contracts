@@ -3,10 +3,9 @@ from contracts.escrow.constants import *
 
 
 @Subroutine(TealType.uint64)
-def guard_buyer_close_out():
+def guard_optout_from_ASA():
     return Seq(
         And(
-            App.globalGet(GLOBAL_BUYER) == Txn.sender(),
-            Txn.application_args[0] == CLOSE_OUT,
+            Txn.application_args[0] == OPTOUT_CONTRACT,
         )
     )

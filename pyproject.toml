@@ -15,7 +15,16 @@ pyteal = "^0.20.1"
 autopep8 = "^2.0.1"
 
 [tool.poetry.scripts]
-deploy = "scripts.deploy.escrow.deploy_new:main"
+deploy_new = "scripts.deploy.escrow.deploy_new:main"
+deploy_update = "scripts.deploy.escrow.deploy_update:main"
+create_ASA = "scripts.deploy.escrow.create_ASA:main"
+transfer_ASA_to_account = "scripts.deploy.escrow.transfer_ASA_to_account:main"
+transfer_ASA_to_contract = "scripts.deploy.escrow.transfer_ASA_to_contract:main"
+optin_account = "scripts.deploy.escrow.optin_account:main"
+optin_contract = "scripts.deploy.escrow.optin_contract:main"
+optout_contract = "scripts.deploy.escrow.optout_contract:main"
+print_ASA_holders = "scripts.deploy.escrow.print_ASA_holders:main"
+get_contract_balance = "scripts.deploy.escrow.get_contract_balance:main"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"

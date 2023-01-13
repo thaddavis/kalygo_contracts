@@ -7,6 +7,6 @@ def guard_seller_close_out():
     return Seq(
         And(
             App.globalGet(GLOBAL_SELLER) == Txn.sender(),
-            Txn.application_args[0] == CLOSE_OUT_CONTRACT_BALANCE,
+            Txn.application_args[0] == CLOSE_OUT,
         )
     )

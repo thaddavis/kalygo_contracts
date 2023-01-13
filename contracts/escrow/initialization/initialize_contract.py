@@ -5,15 +5,19 @@ from contracts.escrow.constants import *
 @Subroutine(TealType.none)
 def initialize_contract():
     return Seq(
-        App.globalPut(GLOBAL_CREATOR, Txn.sender()),
+        App.globalPut(
+            GLOBAL_ENABLE_TIME_CHECKS, Btoi(Txn.application_args[9])
+        ),  # uint64
+        App.globalPut(GLOBAL_BUYER_PULLOUT_FLAG, Int(0)),  # uint64
+        App.globalPut(GLOBAL_CREATOR, Txn.sender()),  # byteslice
         App.globalPut(GLOBAL_BUYER, Txn.application_args[0]),  # byteslice
         App.globalPut(GLOBAL_SELLER, Txn.application_args[1]),  # byteslice
         If(
             And(
-                Btoi(Txn.application_args[2]) >= Int(100000), # escrow 1
-                Btoi(Txn.application_args[3]) >= Int(100000), # escrow 2
+                Btoi(Txn.application_args[2]) >= Int(100000),  # escrow 1
+                Btoi(Txn.application_args[3]) >= Int(100000),  # escrow 2
                 (Btoi(Txn.application_args[2]) + Btoi(Txn.application_args[3]))
-                == Btoi(Txn.application_args[4]), # make sure escrow 1 & 2 == total 
+                == Btoi(Txn.application_args[4]),  # make sure escrow 1 & 2 == total
             )
         )
         .Then(

@@ -18,13 +18,13 @@ INSPECTION START - INSPECTION END - CLOSING DATE - MOVING DATE - FREE FUNDS DATE
 
 - Buyer can raise an `ARBITRATION_FLAG` any time after the `INSPECTION_END` and before the `MOVING_DATE` date
 - If only the Buyer raises `ARBITRATION_FLAG` after `FREE_FUNDS_DATE`, then Buyer can withdraw funds after `FREE_FUNDS_DATE`
-   but Seller is now allowed to raise `ARBITRATION_FLAG` after the `MOVING_DATE` but before `FREE_FUNDS_DATE` to involve legal process
+   but Seller is allowed to raise `ARBITRATION_FLAG` after the `MOVING_DATE` but before `FREE_FUNDS_DATE` to involve legal process
 
 - If Buyer DOES NOT send Escrow #2 before `CLOSING_DATE`, then Seller can cancel the contract (Buyer can no longer withdraw funds or set flags but Seller can)
 - If Buyer DOES send Escrow #2 before `CLOSING_DATE`, then Seller CANNOT cancel the contract
 
-- Seller can raise an `ARBITRATION_FLAG` any time after the `INSPECTION_END_DATE` and before the `MOVING_DATE` date
+- Seller can raise an `ARBITRATION_FLAG` any time after the `INSPECTION_END` and before the `MOVING_DATE`
 - If only the Seller raises `ARBITRATION_FLAG` after `FREE_FUNDS_DATE`, then Seller can withdraw funds after the `FREE_FUNDS_DATE`
-    but Buyer is now allowed to raise `ARBITRATION_FLAG` after the `MOVING_DATE` but before `FREE_FUNDS_DATE` to involve legal process
+    but Buyer is allowed to raise `ARBITRATION_FLAG` after the `MOVING_DATE` but before `FREE_FUNDS_DATE` to involve legal process
 
 - If both Buyer/Seller raise `ARBITRATION FLAGS` after the `FREE_FUNDS_DATE`, then only the ASA Manager can withdraw funds from the contract

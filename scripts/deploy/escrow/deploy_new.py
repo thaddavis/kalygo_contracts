@@ -11,17 +11,14 @@ from helpers.utils import (
     get_private_key_from_mnemonic,
 )
 import json
-import config.config_escrow_localhost as config
+import config.config_escrow as config
 from contracts.escrow.contract import approval, clear
+from modules.AlgodClient import Algod
 
 local_ints = 0
 local_bytes = 0
-global_ints = 7
+global_ints = 8
 global_bytes = 3
-
-headers = {
-    "X-API-Key": config.algod_token,
-}
 
 
 def main(
@@ -36,8 +33,8 @@ def main(
     inspection_end: int = int(get_future_timestamp_in_secs(60)),
     closing_date=int(get_future_timestamp_in_secs(240)),
     free_funds_date=int(get_future_timestamp_in_secs(360)),
+    enable_time_checks=True,
 ):
-    algod_client = algod.AlgodClient(config.algod_token, config.algod_url, headers)
     deployer_private_key = get_private_key_from_mnemonic(deployer_mnemonic)
 
     # declare application state storage (immutable)
@@ -52,7 +49,9 @@ def main(
     with open("./build/approval.teal", "w") as h:
         h.write(approval_program_teal)
 
-    approval_program_compiled = compile_program(algod_client, approval_program_teal)
+    approval_program_compiled = compile_program(
+        Algod.getClient(), approval_program_teal
+    )
 
     clear_state_program_ast = clear()
     clear_state_program_teal = compileTeal(
@@ -63,7 +62,7 @@ def main(
         h.write(clear_state_program_teal)
 
     clear_state_program_compiled = compile_program(
-        algod_client, clear_state_program_teal
+        Algod.getClient(), clear_state_program_teal
     )
 
     app_args = [
@@ -75,11 +74,12 @@ def main(
         inspection_start,  # 5 GLOBAL_INSPECTION_START, Btoi(Txn.application_args[5]) # uint64
         inspection_end,  # 6 GLOBAL_INSPECTION_END, Btoi(Txn.application_args[6]) # uint64
         closing_date,  # 7 GLOBAL_CLOSING_DATE, Btoi(Txn.application_args[7]) # uint64
-        free_funds_date,  # 8 GLOBAL_FREE_FUNDS_DATE, Btoi(Txn.application_args[8]) # uint64
+        free_funds_date,  # 8 GLOBAL_FREE_FUNDS_DATE, Btoi(Txn.application_args[8]) # uint64,
+        enable_time_checks,  # 9 GLOBAL_TIME_CHECK_ENABLED
     ]
 
     on_complete = transaction.OnComplete.NoOpOC.real
-    params = algod_client.suggested_params()
+    params = Algod.getClient().suggested_params()
     params.flat_fee = True
     params.fee = 1000
 
@@ -92,7 +92,8 @@ def main(
         global_schema,
         local_schema,
         app_args,
-        foreign_apps=[config.stablecoin_ASA],
+        # foreign_apps=[config.stablecoin_ASA],
+        foreign_apps=[],
         foreign_assets=[],
     )
     print("creating")
@@ -101,14 +102,16 @@ def main(
     signed_txn = txn.sign(deployer_private_key)
     tx_id = signed_txn.transaction.get_txid()
     # send transaction
-    algod_client.send_transactions([signed_txn])
+    Algod.getClient().send_transactions([signed_txn])
     # await confirmation
-    wait_for_confirmation(algod_client, tx_id)
+    wait_for_confirmation(Algod.getClient(), tx_id)
     # display results
-    transaction_response = algod_client.pending_transaction_info(tx_id)
+    transaction_response = Algod.getClient().pending_transaction_info(tx_id)
     app_id = transaction_response["application-index"]
     print("Created new app-id:", app_id)
-    created_app_state = read_created_app_state(algod_client, deployer_address, app_id)
+    created_app_state = read_created_app_state(
+        Algod.getClient(), deployer_address, app_id
+    )
     print("Global state: {}".format(json.dumps(created_app_state, indent=4)))
 
     return app_id
