@@ -14,17 +14,21 @@ INSPECTION START - INSPECTION END - CLOSING DATE - MOVING DATE - FREE FUNDS DATE
 - Create Contract
 - Send ASA Escrow #1 to contract
 
-- Buyer can `PULL_OUT` before `INSPECTION_END` and trigger the funds to be sent back after `INSPECTION_END`
+- Buyer can `PULL_OUT` before `INSPECTION_END` (100%)
+- If Buyer DOES NOT send full payment (Escrow #1 + Escrow #2) before the `CLOSING_DATE`, then the Seller CAN withdraw funds after the `CLOSING_DATE` (100%)
+- If Buyer DOES send full payment (Escrow #1 + Escrow #2) before `CLOSING_DATE`, then the Seller CAN withdraw funds after the `FREE_FUNDS_DATE` (w/ no `ARBITRATION_FLAG`) (100%)
 
-- Buyer can raise an `ARBITRATION_FLAG` any time after the `INSPECTION_END` and before the `MOVING_DATE` date
-- If only the Buyer raises `ARBITRATION_FLAG` after `FREE_FUNDS_DATE`, then Buyer can withdraw funds after `FREE_FUNDS_DATE`
-   but Seller is allowed to raise `ARBITRATION_FLAG` after the `MOVING_DATE` but before `FREE_FUNDS_DATE` to involve legal process
+### ### ###
 
-- If Buyer DOES NOT send Escrow #2 before `CLOSING_DATE`, then Seller can cancel the contract (Buyer can no longer withdraw funds or set flags but Seller can)
-- If Buyer DOES send Escrow #2 before `CLOSING_DATE`, then Seller CANNOT cancel the contract
+- Either party can raise an `ARBITRATION_FLAG` before the `CLOSING_DATE`
+- The other party who has not raised an `ARBITRATION_FLAG` can do so between the `CLOSING_DATE` and the `FREE_FUNDS` date to decide whether or not to go to court!
 
-- Seller can raise an `ARBITRATION_FLAG` any time after the `INSPECTION_END` and before the `MOVING_DATE`
-- If only the Seller raises `ARBITRATION_FLAG` after `FREE_FUNDS_DATE`, then Seller can withdraw funds after the `FREE_FUNDS_DATE`
-    but Buyer is allowed to raise `ARBITRATION_FLAG` after the `MOVING_DATE` but before `FREE_FUNDS_DATE` to involve legal process
+### ### ###
 
 - If both Buyer/Seller raise `ARBITRATION FLAGS` after the `FREE_FUNDS_DATE`, then only the ASA Manager can withdraw funds from the contract
+
+TIMELINE...
+
+INSPECTION START -> INSPECTION END -> MOVING DATE -> CLOSING DATE -> FREE_FUNDS DATE
+
+-- MOVING DATE IS FOR GUIDANCE BUT DOES NOT AFFECT FUNDS --
