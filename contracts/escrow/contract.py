@@ -9,7 +9,7 @@ from contracts.escrow.guards import (
     guard_seller_withdraw_ASA,
     guard_buyer_set_pullout,
 )
-from helpers import program
+from contracts.escrow.program import event
 from contracts.escrow.constants import *
 from .initialization.initialize_contract import initialize_contract
 
@@ -23,7 +23,7 @@ from .subroutines import (
 
 
 def approval():
-    return program.event(
+    return event(
         init=Seq(initialize_contract(), Approve()),
         close_out=Seq(Approve()),
         update=Cond(

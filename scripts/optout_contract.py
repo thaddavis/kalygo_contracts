@@ -4,7 +4,7 @@ from algosdk import account, constants, logic
 from algosdk.future import transaction
 from algosdk.error import AlgodHTTPError
 from modules.AlgodClient import Algod
-from modules.utils.get_txn_params import get_txn_params
+from modules.helpers.get_txn_params import get_txn_params
 
 sender_private_key = get_private_key_from_mnemonic(config.account_a_mnemonic)
 stablecoin_ASA: int = config.stablecoin_ASA

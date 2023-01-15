@@ -1,4 +1,3 @@
-from array import array
 from multiprocessing.dummy import Array
 from algosdk.v2client.algod import AlgodClient
 from algosdk.future import transaction

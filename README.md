@@ -2,6 +2,25 @@
 
 This is a production-ready POC for leveraging smart contracts to securely purchase large items such as real estate.
 
+## Non-exhaustive overiew of project
+
+- .vscode (for integrating this project with VSCode)
+- config (contains config used by the scripts in the `scripts` folder)
+- contracts (all PyTeal code resides here)
+- modules (all code used by automated tests in the `tests` folder resides here)
+- READMEs (documentation to assist in understanding this project)
+- scripts (utility scripts for assisting with various aspects of this application - uses the `config` folder for script configuration)
+
+  - delete_test_accounts.sh (will delete all accounts in the sandbox via `goal`)
+  - generate_test_accounts.sh (will generate test accounts and prefund them with ALGO and "USDCa")
+  - many other helpful scripts as well...
+
+- tests (e2e tests for solid automated testing against the smart contract can be found here)
+- build.sh (compiles the smart contract 1/2)
+- compile.py (compiles the smart contract 2/2)
+- pyproject.toml (python-poetry.org)
+- README.md (meta, right?)
+
 ## Additional info
 
 Refer to the various markdowns in the READMEs folder.

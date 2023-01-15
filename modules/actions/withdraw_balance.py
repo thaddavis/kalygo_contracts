@@ -1,8 +1,6 @@
-from helpers.utils import get_private_key_from_mnemonic
-import config.config_escrow as config
-from algosdk import account, constants, logic
+from modules.helpers.utils import get_private_key_from_mnemonic
+from algosdk import logic
 from algosdk.future import transaction
-from algosdk.error import AlgodHTTPError
 from algosdk.v2client.algod import AlgodClient
 
 
@@ -21,7 +19,7 @@ def withdraw_balance(
 
     # wait for confirmation
     print("wait for confirmation...")
-    confirmed_txn = transaction.wait_for_confirmation(algod_client, tx_id, 4)
+    transaction.wait_for_confirmation(algod_client, tx_id, 4)
     # print("Transaction information: {}".format(
     #     json.dumps(confirmed_txn, indent=4)))
     print("Successfully withdrew balance from contract")

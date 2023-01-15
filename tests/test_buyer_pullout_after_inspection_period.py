@@ -1,19 +1,18 @@
-from textwrap import indent
 import time
 from datetime import datetime
 import pytest
-from modules.utils.deploy_new import deploy_new
-from scripts.escrow.delete_contract import main as delete_contract
+from modules.actions.deploy_new import deploy_new
+from modules.actions.delete_contract import delete_contract
 from algosdk import account, error
 from algosdk.future import transaction
 import config.config_escrow as config
-from helpers.utils import (
+from modules.helpers.utils import (
     format_application_info_global_state,
     get_private_key_from_mnemonic,
 )
 from modules.AlgodClient import Algod
-from modules.utils.get_txn_params import get_txn_params
-from helpers.time import get_current_timestamp, get_future_timestamp_in_secs
+from modules.helpers.get_txn_params import get_txn_params
+from modules.helpers.time import get_current_timestamp, get_future_timestamp_in_secs
 from modules.AlgodClient import Algod
 
 buyer_private_key = get_private_key_from_mnemonic(config.account_b_mnemonic)

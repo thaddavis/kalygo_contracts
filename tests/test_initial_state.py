@@ -1,13 +1,14 @@
 import pytest
 import json
-from modules.utils.deploy_new import deploy_new
+from modules.actions.deploy_new import deploy_new
+from modules.actions.delete_contract import delete_contract
 from algosdk import logic
 import config.config_escrow as config
-from helpers.utils import (
+from modules.helpers.utils import (
     format_application_info_global_state,
 )
 import pytest
-from helpers.time import get_current_timestamp, get_future_timestamp_in_secs
+from modules.helpers.time import get_current_timestamp, get_future_timestamp_in_secs
 from modules.AlgodClient import Algod
 
 
@@ -32,6 +33,12 @@ def escrow_contract():
         True,  # True, -> ENABLE_TIME_CHECKS
     )
     yield deployed_contract["app_id"]
+    print()
+    print("tear down in fixture", deployed_contract["app_id"])
+    delete_contract(
+        deployed_contract["app_id"],
+        config.account_a_mnemonic,
+    )
 
 
 def test_initial_state(escrow_contract):

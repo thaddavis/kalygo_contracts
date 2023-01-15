@@ -1,5 +1,5 @@
-from .get_txn_params import get_txn_params
-from .print_ASA_holdings import print_ASA_holdings
+from ..helpers.get_txn_params import get_txn_params
+from ..helpers.print_ASA_holdings import print_ASA_holdings
 from .optin_contract import optin_contract
 from .optout_contract import optout_contract
 from .delete_contract import delete_contract

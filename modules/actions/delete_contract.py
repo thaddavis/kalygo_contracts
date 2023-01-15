@@ -1,14 +1,12 @@
 from algosdk import account
 from algosdk.future import transaction
-from contracts.escrow.contract import approval, clear
-from pyteal import compileTeal, Mode
-from helpers.utils import (
+from modules.helpers.utils import (
     wait_for_confirmation,
     get_private_key_from_mnemonic,
 )
 import config.config_escrow as config
 from modules.AlgodClient import Algod
-from modules.utils.get_txn_params import get_txn_params
+from modules.helpers.get_txn_params import get_txn_params
 
 
 def delete_contract(

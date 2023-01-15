@@ -8,7 +8,7 @@ from helpers.utils import (
 )
 import config.config_escrow as config
 from modules.AlgodClient import Algod
-from modules.utils.get_txn_params import get_txn_params
+from modules.helpers.get_txn_params import get_txn_params
 
 
 def main(

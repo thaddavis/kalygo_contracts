@@ -1,7 +1,7 @@
 import importlib
 import sys
 
-from helpers import program
+from contracts.escrow import program
 
 if __name__ == "__main__":
     mod = sys.argv[1]

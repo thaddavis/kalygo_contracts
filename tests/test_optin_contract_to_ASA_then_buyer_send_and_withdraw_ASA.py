@@ -1,20 +1,20 @@
 import pytest
 from algosdk import constants, logic
 import config.config_escrow as config
-from helpers.utils import (
+from modules.helpers.utils import (
     get_private_key_from_mnemonic,
 )
-from modules.utils import get_txn_params
-from modules.utils.deploy_new import deploy_new
-from modules.utils.optin_contract import optin_contract
-from modules.utils.optout_contract import optout_contract
-from modules.utils.delete_contract import delete_contract
+from modules.actions import get_txn_params
+from modules.actions.deploy_new import deploy_new
+from modules.actions.optin_contract import optin_contract
+from modules.actions.optout_contract import optout_contract
+from modules.actions.delete_contract import delete_contract
 import pytest
-from helpers.time import get_current_timestamp, get_future_timestamp_in_secs
+from modules.helpers.time import get_current_timestamp, get_future_timestamp_in_secs
 from modules.AlgodClient import Algod
-from modules.utils.withdraw_balance import withdraw_balance
-from modules.utils.transfer_ASA_to_contract import transfer_ASA_to_contract
-from modules.utils.withdraw_ASA import withdraw_ASA
+from modules.actions.withdraw_balance import withdraw_balance
+from modules.actions.transfer_ASA_to_contract import transfer_ASA_to_contract
+from modules.actions.withdraw_ASA import withdraw_ASA
 
 
 @pytest.fixture(scope="module")
