@@ -5,17 +5,17 @@ algod_url = "http://localhost:4001"
 algod_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 indexer_url = "http://localhost:8980"
 indexer_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-app_id = 71
+app_id = 591
 wallet_id = "wallet_QWEASD"
 wallet_phrase = ""
-account_a_address = "5NCUXD7FKRPUFVWV7222EAFGUWIPLT4DXDBQTKR2HRBA6WYH5N6CD2WPJU"
-account_a_mnemonic = "script autumn alter today father dutch panel abstract culture other lock program moment hazard cushion bleak home close front insane bacon tackle liberty abandon scan"
-account_b_address = "CV3VWUK42V3Z5CIBEXGJ2PDPXJ6BXRD3NBHPYHYWX7BUKF3OEWJB5FYRCA"
-account_b_mnemonic = "fan share special pipe picture upper unlock include mutual rotate syrup build garage exhaust diary goose add useful strong vote shallow employ deliver abandon remove"
-account_c_address = "LYXRALTCRQQSSUUQ5ZU37SU2YSYQHEADATXK5WO643XQZ36EJTNU3YFIPM"
-account_c_mnemonic = "inside foam divert spy stamp laugh praise burger reason recipe urban rival side announce recycle pill pen say catch raccoon twist hedgehog panic abandon wreck"
+account_a_address = "WN2OBS5UM4DORPS5HP2AEI7X3NRD6HA5XCEIGMNO7B3YF2UNAGIIMVC6I4"
+account_a_mnemonic = "shed renew donate absurd holiday swap virus amount upon wait gaze erupt insane worth plate extra fish liberty devote kiss soap enter venue abandon chest"
+account_b_address = "JKPP5ZLX6C54F66JUVXAVD7LYB4COZXKDAYRFKQTQ4LTUYLEEDH7XSIZZM"
+account_b_mnemonic = "measure nature ignore oppose across stone purpose screen horse word glass adult layer cliff install witness wear visa flock piano frost river say ability group"
+account_c_address = "J65JSKNZ3YXIFYQQUN77WCPDEIVXRQCYREQCBN2ULCNGAL4WMO26IGAUAA"
+account_c_mnemonic = "interest melt suggest rural nephew such notable convince seat seven follow keen come stable manual remember panel hungry catalog company pause equip promote absent opinion"
 
-stablecoin_ASA = 10
+stablecoin_ASA = 573
 
 escrow_payment_1 = 1000000
 escrow_payment_2 = 2000000

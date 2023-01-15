@@ -15,7 +15,7 @@ account_b_mnemonic = "ACCOUNT_B_MNEMONIC"
 account_c_address = "ACCOUNT_C_ADDRESS"
 account_c_mnemonic = "ACCOUNT_C_MNEMONIC"
 
-stablecoin_ASA = 10
+stablecoin_ASA = STABLECOIN_ASA_ID
 
 escrow_payment_1 = 1000000
 escrow_payment_2 = 2000000

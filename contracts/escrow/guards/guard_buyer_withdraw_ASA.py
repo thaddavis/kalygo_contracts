@@ -1,15 +1,14 @@
 from pyteal import *
 from contracts.escrow.constants import *
 
-
+# TODO
 @Subroutine(TealType.uint64)
-def guard_buyer_set_pullout():
+def guard_buyer_withdraw_ASA():
     return Seq(
         And(
+            # TODO will need to add time related checks
             Global.group_size() == Int(1),
             App.globalGet(GLOBAL_BUYER) == Txn.sender(),
-            Txn.application_args[0] == BUYER_SET_PULLOUT,
-            App.globalGet(GLOBAL_ENABLE_TIME_CHECKS) == Int(1),
-            Global.latest_timestamp() < App.globalGet(GLOBAL_INSPECTION_END_DATE),
+            Txn.application_args[0] == WITHDRAW_ASA,
         )
     )

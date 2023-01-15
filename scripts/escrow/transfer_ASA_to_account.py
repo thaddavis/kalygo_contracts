@@ -8,7 +8,7 @@ from algosdk.encoding import encode_address
 from modules.AlgodClient import Algod
 
 sender_private_key = get_private_key_from_mnemonic(config.account_c_mnemonic)
-receiver_private_key = get_private_key_from_mnemonic(config.account_a_mnemonic)
+receiver_private_key = get_private_key_from_mnemonic(config.account_b_mnemonic)
 stablecoin_ASA: int = config.stablecoin_ASA
 
 
@@ -34,7 +34,7 @@ def main():
         sender,  # sender (str): address of the sender
         params,  # sp (SuggestedParams): suggested params from algod
         receiver,  # receiver (str): address of the receiver
-        100,  # amt (int): amount of asset base units to send
+        1000,  # amt (int): amount of asset base units to send
         stablecoin_ASA,  # index (int): index of the asset
     )
 

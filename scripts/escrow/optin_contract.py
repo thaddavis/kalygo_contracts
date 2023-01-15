@@ -25,7 +25,7 @@ def main():
     sender = sender_address
     receiver = app_address
 
-    note = "Optin to ASAs".encode()
+    note = "Optin contract to send and receive stablecoins".encode()
     amount = (
         100000 * 2
     )  # once for being able to issue transactions from contract and once for opting into stablecoin ASA

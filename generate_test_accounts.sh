@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "WALLETS"
-goal wallet list
+
+goal wallet new wallet_QWEASD
+
 while read i; do
     asArray=($i)
     default_account=${asArray[2]}
@@ -39,15 +41,6 @@ account_c_export_output=`goal account export -a $account_c -w wallet_QWEASD`
 account_c_mneumonic=$(echo $account_c_export_output | awk -F'"' '{print $2}')
 echo $account_c_mneumonic
 echo ""
-sed \
-"
-s/ACCOUNT_A_ADDRESS/$account_a/g;
-s/ACCOUNT_A_MNEMONIC/$account_a_mneumonic/g;
-s/ACCOUNT_B_ADDRESS/$account_b/g;
-s/ACCOUNT_B_MNEMONIC/$account_b_mneumonic/g;
-s/ACCOUNT_C_ADDRESS/$account_c/g;
-s/ACCOUNT_C_MNEMONIC/$account_c_mneumonic/g;
-" config/config_escrow_template.py > config/config_escrow.py
 
 mAlgoAmount=10000000000
 echo ""
@@ -79,7 +72,25 @@ goal asset create \
 --out "unsigned_asset_creation.tx"
 
 goal clerk sign -w wallet_QWEASD -i unsigned_asset_creation.tx -o signed_asset_creation.tx
-
 goal clerk rawsend -w wallet_QWEASD -f signed_asset_creation.tx
+echo "_ _ _"
 
-goal asset info --creator $account_c --unitname "USDCa"
+
+while read i; do
+    echo "$i"
+    asArray=($i)
+    # echo ${asArray[2]}
+    asset_id=${asArray[2]}
+    break
+done <<< "`goal asset info --creator $account_c --unitname "USDCa"`"
+
+sed \
+"
+s/ACCOUNT_A_ADDRESS/$account_a/g;
+s/ACCOUNT_A_MNEMONIC/$account_a_mneumonic/g;
+s/ACCOUNT_B_ADDRESS/$account_b/g;
+s/ACCOUNT_B_MNEMONIC/$account_b_mneumonic/g;
+s/ACCOUNT_C_ADDRESS/$account_c/g;
+s/ACCOUNT_C_MNEMONIC/$account_c_mneumonic/g;
+s/STABLECOIN_ASA_ID/$asset_id/g;
+" config/config_escrow_template.py > config/config_escrow.py

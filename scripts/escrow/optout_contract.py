@@ -4,6 +4,7 @@ from algosdk import account, constants, logic
 from algosdk.future import transaction
 from algosdk.error import AlgodHTTPError
 from modules.AlgodClient import Algod
+from modules.utils.get_txn_params import get_txn_params
 
 sender_private_key = get_private_key_from_mnemonic(config.account_a_mnemonic)
 stablecoin_ASA: int = config.stablecoin_ASA
@@ -17,15 +18,9 @@ def main():
     print("app_id", config.app_id)
     print("app_address", app_address)
 
-    sender_address = account.address_from_private_key(sender_private_key)
+    sender = account.address_from_private_key(sender_private_key)
 
-    params = Algod.getClient().suggested_params()
-    params.flat_fee = True
-    # "* 2" is how to pool fees for optin inner group txn
-    params.fee = constants.MIN_TXN_FEE * 2
-
-    sender = sender_address
-    # receiver = app_address
+    params = get_txn_params(Algod.getClient(), constants.MIN_TXN_FEE, 2)
 
     app_args = ["optout_contract", stablecoin_ASA]
     unsigned_txn = transaction.ApplicationNoOpTxn(

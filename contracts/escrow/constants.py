@@ -9,16 +9,17 @@ GLOBAL_ESCROW_PAYMENT_1 = Bytes("global_escrow_payment_1")  # stores uint64
 GLOBAL_ESCROW_PAYMENT_2 = Bytes("global_escrow_payment_2")  # stores uint64
 GLOBAL_ESCROW_TOTAL = Bytes("global_escrow_total")  # stores uint64
 
-GLOBAL_ENABLE_TIME_CHECKS = Bytes("global_enable_time_checks")  # uint64
-GLOBAL_INSPECTION_START = Bytes("global_inspection_start")  # uint64
-GLOBAL_INSPECTION_END = Bytes("global_inspection_end")  # uint64
-GLOBAL_CLOSING_DATE = Bytes("global_closing_date")  # uint64
-GLOBAL_FREE_FUNDS_DATE = Bytes("global_free_funds_date")  # uint64
+GLOBAL_ENABLE_TIME_CHECKS = Bytes("global_enable_time_checks")  # stores uint64
+GLOBAL_INSPECTION_START_DATE = Bytes("global_inspection_start_date")  # stores uint64
+GLOBAL_INSPECTION_END_DATE = Bytes("global_inspection_end_date")  # stores uint64
+GLOBAL_CLOSING_DATE = Bytes("global_closing_date")  # stores uint64
+GLOBAL_FREE_FUNDS_DATE = Bytes("global_free_funds_date")  # stores uint64
 
-GLOBAL_BUYER_PULLOUT_FLAG = Bytes("global_buyer_pullout_flag")  # uint64
+GLOBAL_BUYER_PULLOUT_FLAG = Bytes("global_buyer_pullout_flag")  # stores uint64
 
-INCREMENT_COUNTER = Bytes("increment")  # byteslice
-CLOSE_OUT = Bytes("close_out")  # byteslice
+INCREMENT_COUNTER = Bytes("increment")
+WITHDRAW_BALANCE = Bytes("withdraw_balance")
+WITHDRAW_ASA = Bytes("withdraw_ASA")
 OPTIN_CONTRACT = Bytes("optin_contract")
 OPTOUT_CONTRACT = Bytes("optout_contract")
 HAS_ESCROW_PAYMENT_1 = Bytes("has_escrow_payment_1")

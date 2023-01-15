@@ -10,15 +10,8 @@ stablecoin_ASA: int = config.stablecoin_ASA
 
 def main():
     print("stablecoin_ASA", stablecoin_ASA)
-    app_info = Algod.getClient().application_info(config.app_id)
 
-    creator_address = app_info["params"]["creator"]
     account_address = account.address_from_private_key(account_private_key)
-
-    assert creator_address == account_address
-
-    app_address = logic.get_application_address(config.app_id)
-    print("app_address", app_address)
 
     params = Algod.getClient().suggested_params()
     params.flat_fee = True

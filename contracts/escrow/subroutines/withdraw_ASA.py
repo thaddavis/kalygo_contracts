@@ -1,19 +1,21 @@
 from pyteal import *
 
+
 @Subroutine(TealType.none)
-def close_out():
+def withdraw_ASA():
     return Seq(
         [
+            # ASA back to sender
             InnerTxnBuilder.Begin(),
             InnerTxnBuilder.SetFields(
                 {
-                    TxnField.type_enum: TxnType.Payment,
-                    TxnField.amount: Balance(Global.current_application_address())
-                    - Global.min_txn_fee(),
+                    TxnField.type_enum: TxnType.AssetTransfer,
+                    TxnField.xfer_asset: Btoi(Txn.application_args[1]),
+                    # vvv simulate amount of ASA to return to sender vvv
+                    TxnField.asset_amount: Btoi(Txn.application_args[2]),
                     TxnField.sender: Global.current_application_address(),
-                    TxnField.receiver: Txn.sender(),
+                    TxnField.asset_receiver: Txn.sender(),
                     TxnField.fee: Int(0),
-                    TxnField.close_remainder_to: Txn.sender(),
                 }
             ),
             InnerTxnBuilder.Submit(),

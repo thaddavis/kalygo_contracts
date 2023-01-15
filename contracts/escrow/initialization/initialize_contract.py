@@ -14,8 +14,8 @@ def initialize_contract():
         App.globalPut(GLOBAL_SELLER, Txn.application_args[1]),  # byteslice
         If(
             And(
-                Btoi(Txn.application_args[2]) >= Int(100000),  # escrow 1
-                Btoi(Txn.application_args[3]) >= Int(100000),  # escrow 2
+                Btoi(Txn.application_args[2]) >= Int(100000),  # escrow 1 uint64
+                Btoi(Txn.application_args[3]) >= Int(100000),  # escrow 2 uint64
                 (Btoi(Txn.application_args[2]) + Btoi(Txn.application_args[3]))
                 == Btoi(Txn.application_args[4]),  # make sure escrow 1 & 2 == total
             )
@@ -43,10 +43,10 @@ def initialize_contract():
         .Then(
             Seq(
                 App.globalPut(
-                    GLOBAL_INSPECTION_START, Btoi(Txn.application_args[5])
+                    GLOBAL_INSPECTION_START_DATE, Btoi(Txn.application_args[5])
                 ),  # uint64
                 App.globalPut(
-                    GLOBAL_INSPECTION_END, Btoi(Txn.application_args[6])
+                    GLOBAL_INSPECTION_END_DATE, Btoi(Txn.application_args[6])
                 ),  # uint64
                 App.globalPut(
                     GLOBAL_CLOSING_DATE, Btoi(Txn.application_args[7])
