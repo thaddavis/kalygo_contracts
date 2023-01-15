@@ -4,7 +4,6 @@ import config.config_escrow as config
 from modules.helpers.utils import (
     get_private_key_from_mnemonic,
 )
-from modules.actions import get_txn_params
 from modules.actions.deploy_new import deploy_new
 from modules.actions.optin_contract import optin_contract
 from modules.actions.optout_contract import optout_contract
@@ -12,6 +11,7 @@ from modules.actions.delete_contract import delete_contract
 import pytest
 from modules.helpers.time import get_current_timestamp, get_future_timestamp_in_secs
 from modules.AlgodClient import Algod
+from modules.helpers.get_txn_params import get_txn_params
 from modules.actions.withdraw_balance import withdraw_balance
 from modules.actions.transfer_ASA_to_contract import transfer_ASA_to_contract
 from modules.actions.withdraw_ASA import withdraw_ASA
@@ -33,6 +33,7 @@ def escrow_contract():
         config.total_price,
         int(get_current_timestamp()),  # Inspection Period Start Date
         int(get_future_timestamp_in_secs(60)),  # Inspection Period End Date
+        int(get_future_timestamp_in_secs(120)),  # Moving Date
         int(get_future_timestamp_in_secs(240)),  # Closing Date
         int(get_future_timestamp_in_secs(360)),  # Free Funds Date
         True,  # True, -> ENABLE_TIME_CHECKS
@@ -140,39 +141,3 @@ def test_optin_contract_to_ASA_then_buyer_send_and_withdraw_ASA(escrow_contract)
 
     res = Algod.getClient().account_info(contract_address)
     assert res["amount"] == 0
-
-
-# def test_send_ASA_f_buyer_t_contract(escrow_contract):
-#     app_id = escrow_contract
-
-#     contract_address = logic.get_application_address(app_id)
-#     stablecoin_ASA = config.stablecoin_ASA
-
-#     print("")
-#     print("Contract address: ", contract_address)
-#     print_ASA_holdings(Algod.getClient(), Indexer.getClient(), stablecoin_ASA)
-
-#     asset_info = Algod.getClient().asset_info(config.stablecoin_ASA)
-#     print("asset_info", asset_info)
-#     print("ASA name: ", asset_info["params"]["name"])
-#     print("")
-
-#     print("testing sending stablecoins f buyer to contract...")
-#     params = get_txn_params(Algod.getClient())
-#     buyer_private_key = get_private_key_from_mnemonic(config.account_b_mnemonic)
-#     sender = account.address_from_private_key(buyer_private_key)
-#     receiver = contract_address
-
-#     unsigned_txn_A = transaction.AssetTransferTxn(
-#         sender,  # sender (str): address of the sender
-#         params,  # sp (SuggestedParams): suggested params from algod
-#         receiver,  # receiver (str): address of the receiver
-#         2,  # amt (int): amount of asset base units to send
-#         stablecoin_ASA,  # index (int): index of the asset
-#     )
-
-#     print("signing AssetTransferTxn")
-#     signed_txn_A = unsigned_txn_A.sign(buyer_private_key)
-#     # submit transaction
-#     print("sending txn")
-#     tx_id = Algod.getClient().send_transactions([signed_txn_A])

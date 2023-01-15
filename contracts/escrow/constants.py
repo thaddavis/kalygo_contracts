@@ -12,6 +12,7 @@ GLOBAL_ESCROW_TOTAL = Bytes("global_escrow_total")  # stores uint64
 GLOBAL_ENABLE_TIME_CHECKS = Bytes("global_enable_time_checks")  # stores uint64
 GLOBAL_INSPECTION_START_DATE = Bytes("global_inspection_start_date")  # stores uint64
 GLOBAL_INSPECTION_END_DATE = Bytes("global_inspection_end_date")  # stores uint64
+GLOBAL_MOVING_DATE = Bytes("global_moving_date")
 GLOBAL_CLOSING_DATE = Bytes("global_closing_date")  # stores uint64
 GLOBAL_FREE_FUNDS_DATE = Bytes("global_free_funds_date")  # stores uint64
 

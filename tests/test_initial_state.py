@@ -19,15 +19,16 @@ def escrow_contract():
     print("deploying escrow contract...")
 
     deployed_contract = deploy_new(
-        config.account_a_address,
+        config.account_a_address,  # deployer_address
         config.account_a_mnemonic,
-        config.account_b_address,
+        config.account_b_address,  # buyer_address
         config.account_c_address,
-        config.escrow_payment_1,
+        config.escrow_payment_1,  # escrow_payment_1
         config.escrow_payment_2,
-        config.total_price,
+        config.total_price,  # total_price
         int(get_current_timestamp()),  # Inspection Period Start Date
         int(get_future_timestamp_in_secs(60)),  # Inspection Period End Date
+        int(get_future_timestamp_in_secs(120)),  # Moving Date
         int(get_future_timestamp_in_secs(240)),  # Closing Date
         int(get_future_timestamp_in_secs(360)),  # Free Funds Date
         True,  # True, -> ENABLE_TIME_CHECKS

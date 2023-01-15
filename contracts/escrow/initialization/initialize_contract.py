@@ -6,7 +6,7 @@ from contracts.escrow.constants import *
 def initialize_contract():
     return Seq(
         App.globalPut(
-            GLOBAL_ENABLE_TIME_CHECKS, Btoi(Txn.application_args[9])
+            GLOBAL_ENABLE_TIME_CHECKS, Btoi(Txn.application_args[10])
         ),  # uint64
         App.globalPut(GLOBAL_BUYER_PULLOUT_FLAG, Int(0)),  # uint64
         App.globalPut(GLOBAL_CREATOR, Txn.sender()),  # byteslice
@@ -38,6 +38,7 @@ def initialize_contract():
             And(
                 Btoi(Txn.application_args[5]) <= Btoi(Txn.application_args[6]),
                 Btoi(Txn.application_args[6]) <= Btoi(Txn.application_args[7]),
+                Btoi(Txn.application_args[7]) <= Btoi(Txn.application_args[8]),
             )
         )
         .Then(
@@ -49,10 +50,13 @@ def initialize_contract():
                     GLOBAL_INSPECTION_END_DATE, Btoi(Txn.application_args[6])
                 ),  # uint64
                 App.globalPut(
-                    GLOBAL_CLOSING_DATE, Btoi(Txn.application_args[7])
+                    GLOBAL_MOVING_DATE, Btoi(Txn.application_args[7])
                 ),  # uint64
                 App.globalPut(
-                    GLOBAL_FREE_FUNDS_DATE, Btoi(Txn.application_args[8])
+                    GLOBAL_CLOSING_DATE, Btoi(Txn.application_args[8])
+                ),  # uint64
+                App.globalPut(
+                    GLOBAL_FREE_FUNDS_DATE, Btoi(Txn.application_args[9])
                 ),  # uint64
             )
         )

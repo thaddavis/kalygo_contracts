@@ -34,6 +34,7 @@ def escrow_contract():
         config.total_price,
         int(get_current_timestamp()),  # Inspection Period Start Date
         int(get_future_timestamp_in_secs(8)),  # Inspection Period End Date
+        int(get_future_timestamp_in_secs(50)),  # Moving Date
         int(get_future_timestamp_in_secs(60)),  # Closing Date
         int(get_future_timestamp_in_secs(120)),  # Free Funds Date
         True,  # True, -> ENABLE_TIME_CHECKS

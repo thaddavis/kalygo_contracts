@@ -14,7 +14,7 @@ from modules.AlgodClient import Algod
 
 local_ints = 0
 local_bytes = 0
-global_ints = 9
+global_ints = 10
 global_bytes = 3
 
 
@@ -28,7 +28,8 @@ def deploy_new(
     total_price: int = config.total_price,
     inspection_start: int = int(get_current_timestamp()),
     inspection_end: int = int(get_future_timestamp_in_secs(60)),
-    closing_date=int(get_future_timestamp_in_secs(240)),
+    moving_date=int(get_future_timestamp_in_secs(240)),
+    closing_date=int(get_future_timestamp_in_secs(300)),
     free_funds_date=int(get_future_timestamp_in_secs(360)),
     enable_time_checks=True,
     foreign_apps=[],
@@ -72,9 +73,10 @@ def deploy_new(
         total_price,  # 4 total escrow
         inspection_start,  # 5 GLOBAL_INSPECTION_START_DATE, Btoi(Txn.application_args[5]) # uint64
         inspection_end,  # 6 GLOBAL_INSPECTION_END_DATE, Btoi(Txn.application_args[6]) # uint64
-        closing_date,  # 7 GLOBAL_CLOSING_DATE, Btoi(Txn.application_args[7]) # uint64
-        free_funds_date,  # 8 GLOBAL_FREE_FUNDS_DATE, Btoi(Txn.application_args[8]) # uint64,
-        enable_time_checks,  # 9 GLOBAL_TIME_CHECK_ENABLED
+        moving_date,  # 7 GLOBAL_MOVING_DATE, Btoi(Txn.application_args[7]) # uint64
+        closing_date,  # 8 GLOBAL_CLOSING_DATE, Btoi(Txn.application_args[8]) # uint64
+        free_funds_date,  # 9 GLOBAL_FREE_FUNDS_DATE, Btoi(Txn.application_args[9]) # uint64,
+        enable_time_checks,  # 10 GLOBAL_TIME_CHECK_ENABLED
     ]
 
     on_complete = transaction.OnComplete.NoOpOC.real
