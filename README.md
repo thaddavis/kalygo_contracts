@@ -38,5 +38,5 @@ All tests are using the code in found in the `modules` folder as helper function
 - poetry run deploy
 - poetry run pytest <!-- test WITHOUT console output -->
 - poetry run pytest -s <!-- test with console output -->
-- poetry run pytest tests/escrow_contract/test_escrow_contract.py
-- poetry run pytest tests/test_counter_contract.py::Test_Counter_Contract::test_initial_state
+- poetry run pytest tests
+- pytest -n 2 test
