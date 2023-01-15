@@ -75,7 +75,6 @@ goal clerk sign -w wallet_QWEASD -i unsigned_asset_creation.tx -o signed_asset_c
 goal clerk rawsend -w wallet_QWEASD -f signed_asset_creation.tx
 echo "_ _ _"
 
-
 while read i; do
     echo "$i"
     asArray=($i)
@@ -83,6 +82,34 @@ while read i; do
     asset_id=${asArray[2]}
     break
 done <<< "`goal asset info --creator $account_c --unitname "USDCa"`"
+
+# OPTIN AND SEND ASA TO ACCOUNT A
+
+goal asset optin \
+--assetid $asset_id \
+--account $account_a \
+--wallet wallet_QWEASD
+
+goal asset send \
+--amount 1000000 \
+--assetid $asset_id \
+--from $account_c \
+--to $account_a \
+--wallet wallet_QWEASD
+
+# OPTIN AND SEND ASA TO ACCOUNT B
+
+goal asset optin \
+--assetid $asset_id \
+--account $account_b \
+--wallet wallet_QWEASD
+
+goal asset send \
+--amount 1000000 \
+--assetid $asset_id \
+--from $account_c \
+--to $account_b \
+--wallet wallet_QWEASD
 
 sed \
 "
@@ -94,3 +121,4 @@ s/ACCOUNT_C_ADDRESS/$account_c/g;
 s/ACCOUNT_C_MNEMONIC/$account_c_mneumonic/g;
 s/STABLECOIN_ASA_ID/$asset_id/g;
 " config/config_escrow_template.py > config/config_escrow.py
+

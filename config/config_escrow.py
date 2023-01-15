@@ -5,17 +5,17 @@ algod_url = "http://localhost:4001"
 algod_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 indexer_url = "http://localhost:8980"
 indexer_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-app_id = 591
+app_id = 71
 wallet_id = "wallet_QWEASD"
 wallet_phrase = ""
-account_a_address = "WN2OBS5UM4DORPS5HP2AEI7X3NRD6HA5XCEIGMNO7B3YF2UNAGIIMVC6I4"
-account_a_mnemonic = "shed renew donate absurd holiday swap virus amount upon wait gaze erupt insane worth plate extra fish liberty devote kiss soap enter venue abandon chest"
-account_b_address = "JKPP5ZLX6C54F66JUVXAVD7LYB4COZXKDAYRFKQTQ4LTUYLEEDH7XSIZZM"
-account_b_mnemonic = "measure nature ignore oppose across stone purpose screen horse word glass adult layer cliff install witness wear visa flock piano frost river say ability group"
-account_c_address = "J65JSKNZ3YXIFYQQUN77WCPDEIVXRQCYREQCBN2ULCNGAL4WMO26IGAUAA"
-account_c_mnemonic = "interest melt suggest rural nephew such notable convince seat seven follow keen come stable manual remember panel hungry catalog company pause equip promote absent opinion"
+account_a_address = "UQ4TKIHRBPETHRHUCHDZKJJU5ZA2V5RDRSG6PMQVQ6P73JJDXUXGQLXLFM"
+account_a_mnemonic = "enemy wire current peace dinosaur defense miracle nest annual basket reflect casino sibling deer try city daughter finger lesson cricket melody draft domain about section"
+account_b_address = "DLM5NASGA6GGI2UWJ5DIOLKEH47D77KAGQKXIP3DA5XQUZ36GDOHABE42I"
+account_b_mnemonic = "breeze siren occur tornado ocean cost unhappy extra juice hope potato seat business anchor hurry spring away nominee box spread toss defy route ability runway"
+account_c_address = "Z5G6D3YOPKDXKYVOMPCVPPECSWTDLDEGHDF76CORFEHINF5H4S65KDIEMY"
+account_c_mnemonic = "live path cram topic nasty among plastic clutch tip friend resist frozen gown rain put destroy issue afraid delay april expand kid vast absorb demand"
 
-stablecoin_ASA = 573
+stablecoin_ASA = 764
 
 escrow_payment_1 = 1000000
 escrow_payment_2 = 2000000
