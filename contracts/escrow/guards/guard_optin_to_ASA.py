@@ -6,11 +6,9 @@ from contracts.escrow.constants import *
 def guard_optin_to_ASA():
     return Seq(
         And(
-            Global.group_size() == Int(2),
-            Gtxn[0].sender() == App.globalGet(GLOBAL_BUYER),
-            Gtxn[1].sender() == App.globalGet(GLOBAL_BUYER),
-            Gtxn[0].type_enum() == TxnType.Payment,
-            Gtxn[1].type_enum() == TxnType.ApplicationCall,
-            Gtxn[1].application_args[0] == OPTIN_CONTRACT,
+            Global.group_size() == Int(1),
+            Txn.sender() == App.globalGet(GLOBAL_BUYER),
+            Txn.type_enum() == TxnType.ApplicationCall,
+            Txn.application_args[0] == OPTIN_CONTRACT,
         )
     )

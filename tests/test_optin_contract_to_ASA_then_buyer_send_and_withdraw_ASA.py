@@ -5,6 +5,7 @@ from modules.helpers.utils import (
     get_private_key_from_mnemonic,
 )
 from modules.actions.deploy_new import deploy_new
+from modules.actions.fund_minimum_balance import fund_minimum_balance
 from modules.actions.optin_contract import optin_contract
 from modules.actions.optout_contract import optout_contract
 from modules.actions.delete_contract import delete_contract
@@ -53,7 +54,8 @@ def escrow_contract():
 def test_optin_contract_to_ASA_then_buyer_send_and_withdraw_ASA(escrow_contract):
     app_id = escrow_contract
 
-    txn_params = get_txn_params(Algod.getClient(), constants.MIN_TXN_FEE, 2)
+    txn_params = get_txn_params(Algod.getClient(), constants.MIN_TXN_FEE, 1)
+    opt_txn_params = get_txn_params(Algod.getClient(), constants.MIN_TXN_FEE, 2)
 
     buyer = config.account_b_address
     buyer_private_key = get_private_key_from_mnemonic(config.account_b_mnemonic)
@@ -63,15 +65,23 @@ def test_optin_contract_to_ASA_then_buyer_send_and_withdraw_ASA(escrow_contract)
     res = Algod.getClient().account_info(contract_address)
     assert res["amount"] == 0
 
-    optin_contract(
+    fund_minimum_balance(
         Algod.getClient(),
         txn_params,
         buyer,
         buyer_private_key,
         contract_address,
+        200000,  # 100,000 mAlgos min_balance for optin to ASA + 100,000 mAlgos for contract to be able to call other contracts
+    )
+
+    optin_contract(
+        Algod.getClient(),
+        opt_txn_params,
+        buyer,
+        buyer_private_key,
+        contract_address,
         app_id,
         stablecoin_ASA,
-        200000,  # 100,000 mAlgos min_balance for optin to ASA + 100,000 mAlgos for contract to be able to call other contracts
     )
 
     res = Algod.getClient().account_info(contract_address)
@@ -106,7 +116,12 @@ def test_optin_contract_to_ASA_then_buyer_send_and_withdraw_ASA(escrow_contract)
     Withdraw ASA from contract
     """
     withdraw_ASA(
-        Algod.getClient(), txn_params, buyer, buyer_private_key, app_id, stablecoin_ASA
+        Algod.getClient(),
+        opt_txn_params,
+        buyer,
+        buyer_private_key,
+        app_id,
+        stablecoin_ASA,
     )
 
     account_info = Algod.getClient().account_info(contract_address)
@@ -116,7 +131,12 @@ def test_optin_contract_to_ASA_then_buyer_send_and_withdraw_ASA(escrow_contract)
             assert asset["amount"] == 0
 
     optout_contract(
-        Algod.getClient(), txn_params, buyer, buyer_private_key, app_id, stablecoin_ASA
+        Algod.getClient(),
+        opt_txn_params,
+        buyer,
+        buyer_private_key,
+        app_id,
+        stablecoin_ASA,
     )
 
     withdraw_balance(

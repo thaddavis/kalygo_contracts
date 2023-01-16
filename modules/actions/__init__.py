@@ -5,3 +5,4 @@ from .optout_contract import optout_contract
 from .delete_contract import delete_contract
 from .transfer_ASA_to_contract import transfer_ASA_to_contract
 from .withdraw_ASA import withdraw_ASA
+from .fund_minimum_balance import fund_minimum_balance
