@@ -1,4 +1,4 @@
-from helpers.utils import get_private_key_from_mnemonic
+from modules.helpers.utils import get_private_key_from_mnemonic
 import config.config_escrow as config
 from algosdk import account, constants, logic
 from algosdk.future import transaction
@@ -34,7 +34,7 @@ def main():
         sender,  # sender (str): address of the sender
         params,  # sp (SuggestedParams): suggested params from algod
         receiver,  # receiver (str): address of the receiver
-        1000,  # amt (int): amount of asset base units to send
+        10000000,  # amt (int): amount of asset base units to send
         stablecoin_ASA,  # index (int): index of the asset
     )
 

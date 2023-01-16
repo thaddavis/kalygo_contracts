@@ -3,8 +3,8 @@ from algosdk import account
 from algosdk.future import transaction
 from algosdk.encoding import decode_address
 from pyteal import compileTeal, Mode
-from helpers.time import get_current_timestamp, get_future_timestamp_in_secs
-from helpers.utils import (
+from modules.helpers.time import get_current_timestamp, get_future_timestamp_in_secs
+from modules.helpers.utils import (
     compile_program,
     wait_for_confirmation,
     read_created_app_state,

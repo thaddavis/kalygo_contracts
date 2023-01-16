@@ -8,3 +8,4 @@ from .guard_buyer_withdraw_ASA import guard_buyer_withdraw_ASA
 from .guard_seller_withdraw_ASA import guard_seller_withdraw_ASA
 
 from .guard_buyer_set_pullout import guard_buyer_set_pullout
+from .guard_buyer_set_arbitration import guard_buyer_set_arbitration

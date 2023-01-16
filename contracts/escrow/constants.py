@@ -17,6 +17,10 @@ GLOBAL_CLOSING_DATE = Bytes("global_closing_date")  # stores uint64
 GLOBAL_FREE_FUNDS_DATE = Bytes("global_free_funds_date")  # stores uint64
 
 GLOBAL_BUYER_PULLOUT_FLAG = Bytes("global_buyer_pullout_flag")  # stores uint64
+GLOBAL_BUYER_ARBITRATION_FLAG = Bytes("global_buyer_arbitration_flag")  # stores uint64
+GLOBAL_SELLER_ARBITRATION_FLAG = Bytes(
+    "global_seller_arbitration_flag"
+)  # stores uint64
 
 INCREMENT_COUNTER = Bytes("increment")
 WITHDRAW_BALANCE = Bytes("withdraw_balance")
@@ -28,3 +32,5 @@ HAS_ESCROW_PAYMENT_2 = Bytes("has_escrow_payment_2")
 HAS_ESCROW_TOTAL = Bytes("has_escrow_total")
 
 BUYER_SET_PULLOUT = Bytes("buyer_set_pullout")
+BUYER_SET_ARBITRATION = Bytes("buyer_set_arbitration")
+SELLER_SET_ARBITRATION = Bytes("seller_set_arbitration")

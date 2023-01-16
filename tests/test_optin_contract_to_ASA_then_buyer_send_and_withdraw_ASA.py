@@ -88,8 +88,10 @@ def test_optin_contract_to_ASA_then_buyer_send_and_withdraw_ASA(escrow_contract)
     assert res["amount"] == 200000
 
     account_info = Algod.getClient().account_info(contract_address)
-    # print("account_info", account_info)
-
+    print()
+    print("account_info", account_info)
+    print()
+    print("loop over assets opted into by the contract address")
     for asset in account_info["assets"]:
         if asset["asset-id"] == stablecoin_ASA:
             print("contract ASA holdings before transfer:", asset["amount"])

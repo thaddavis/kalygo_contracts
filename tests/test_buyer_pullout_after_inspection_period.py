@@ -96,15 +96,11 @@ def test_buyer_pullout(escrow_contract):
         app_args = ["buyer_set_pullout"]
         unsigned_txn = transaction.ApplicationNoOpTxn(sender, params, app_id, app_args)
         signed_txn = unsigned_txn.sign(buyer_private_key)
-
         tx_id = Algod.getClient().send_transactions([signed_txn])
-
         print("tx_id", tx_id)
         # wait for confirmation
         print("wait for confirmation . > . > . >")
-
         # confirmed_txn = transaction.wait_for_confirmation(Algod.getClient(), tx_id, 4)
-
         transaction.wait_for_confirmation(Algod.getClient(), tx_id, 4)
 
     app_info = Algod.getClient().application_info(app_id)
