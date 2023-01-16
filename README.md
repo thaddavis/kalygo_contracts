@@ -40,3 +40,4 @@ All tests are using the code in found in the `modules` folder as helper function
 - poetry run pytest -s <!-- test with console output -->
 - poetry run pytest tests
 - pytest -n 2 test
+- ./build.sh contracts.escrow.contract

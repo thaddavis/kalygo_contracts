@@ -106,14 +106,7 @@ def test_optin_contract_to_ASA_then_buyer_send_and_withdraw_ASA(escrow_contract)
     Withdraw ASA from contract
     """
     withdraw_ASA(
-        Algod.getClient(),
-        txn_params,
-        buyer,
-        buyer_private_key,
-        app_id,
-        stablecoin_ASA,
-        20,
-        [stablecoin_ASA],
+        Algod.getClient(), txn_params, buyer, buyer_private_key, app_id, stablecoin_ASA
     )
 
     account_info = Algod.getClient().account_info(contract_address)

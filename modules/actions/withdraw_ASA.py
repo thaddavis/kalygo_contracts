@@ -10,16 +10,14 @@ def withdraw_ASA(
     sender_private_key: str,
     app_id: int,
     ASA_id: int,
-    ASA_amount: int,
-    foreign_assets: list[int],
 ):
     print("Withdraw ASA from contract")
     app_address = logic.get_application_address(app_id)
     print("app_id", app_id, "app_address", app_address)
 
-    app_args = ["withdraw_ASA", ASA_id, ASA_amount]
+    app_args = ["withdraw_ASA"]
     unsigned_txn = transaction.ApplicationNoOpTxn(
-        sender, params, app_id, app_args, foreign_assets=foreign_assets
+        sender, params, app_id, app_args, foreign_assets=[ASA_id]
     )
 
     signed_txn = unsigned_txn.sign(sender_private_key)
