@@ -4,10 +4,10 @@ GLOBAL_CREATOR: Bytes = Bytes("global_creator")  # stores byteslice
 GLOBAL_BUYER: Bytes = Bytes("global_buyer")  # stores byteslice
 GLOBAL_SELLER: Bytes = Bytes("global_seller")  # stores byteslice
 
-GLOBAL_COUNTER: Bytes = Bytes("global_counter")  # stores uint64
 GLOBAL_ESCROW_PAYMENT_1 = Bytes("global_escrow_payment_1")  # stores uint64
 GLOBAL_ESCROW_PAYMENT_2 = Bytes("global_escrow_payment_2")  # stores uint64
 GLOBAL_ESCROW_TOTAL = Bytes("global_escrow_total")  # stores uint64
+GLOBAL_ASA_ID = Bytes("global_asa_id")
 
 GLOBAL_ENABLE_TIME_CHECKS = Bytes("global_enable_time_checks")  # stores uint64
 GLOBAL_INSPECTION_START_DATE = Bytes("global_inspection_start_date")  # stores uint64

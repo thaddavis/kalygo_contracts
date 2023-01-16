@@ -31,6 +31,7 @@ def escrow_contract():
         config.escrow_payment_1,
         config.escrow_payment_2,
         config.total_price,
+        config.stablecoin_ASA,
         int(get_current_timestamp()),  # Inspection Period Start Date
         int(get_future_timestamp_in_secs(60)),  # Inspection Period End Date
         int(get_future_timestamp_in_secs(120)),  # Moving Date
@@ -122,13 +123,7 @@ def test_optin_contract_to_ASA_then_buyer_send_and_withdraw_ASA(escrow_contract)
             assert asset["amount"] == 0
 
     optout_contract(
-        Algod.getClient(),
-        txn_params,
-        buyer,
-        buyer_private_key,
-        app_id,
-        stablecoin_ASA,
-        [stablecoin_ASA],
+        Algod.getClient(), txn_params, buyer, buyer_private_key, app_id, stablecoin_ASA
     )
 
     withdraw_balance(

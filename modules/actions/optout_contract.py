@@ -10,15 +10,14 @@ def optout_contract(
     sender_private_key: str,
     app_id: int,
     ASA_id: int,
-    foreign_assets: list[int],
 ):
     print("Opting-out Contract from ASA")
     app_address = logic.get_application_address(app_id)
     print("app_id", app_id, "app_address", app_address)
 
-    app_args = ["optout_contract", ASA_id]
+    app_args = ["optout_contract"]
     unsigned_txn = transaction.ApplicationNoOpTxn(
-        sender, params, app_id, app_args, foreign_assets=foreign_assets
+        sender, params, app_id, app_args, foreign_assets=[ASA_id]
     )
 
     signed_txn = unsigned_txn.sign(sender_private_key)

@@ -29,10 +29,7 @@ def optin_contract(
         sender, params, receiver, amount, None, note
     )
 
-    app_args = [
-        "optin_contract",
-        ASA_id,
-    ]
+    app_args = ["optin_contract"]
     unsigned_txn_B = transaction.ApplicationNoOpTxn(
         sender, params, app_id, app_args, foreign_assets=[ASA_id]
     )

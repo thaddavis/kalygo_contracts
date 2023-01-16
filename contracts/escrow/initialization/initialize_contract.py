@@ -8,6 +8,7 @@ def initialize_contract():
         App.globalPut(
             GLOBAL_ENABLE_TIME_CHECKS, Btoi(Txn.application_args[10])
         ),  # uint64
+        App.globalPut(GLOBAL_ASA_ID, Btoi(Txn.application_args[11])),  # uint64
         App.globalPut(GLOBAL_BUYER_PULLOUT_FLAG, Int(0)),  # uint64
         App.globalPut(GLOBAL_CREATOR, Txn.sender()),  # byteslice
         App.globalPut(GLOBAL_BUYER, Txn.application_args[0]),  # byteslice

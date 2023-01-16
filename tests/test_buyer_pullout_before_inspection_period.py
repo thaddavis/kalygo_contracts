@@ -29,6 +29,7 @@ def escrow_contract():
         config.escrow_payment_1,
         config.escrow_payment_2,
         config.total_price,
+        config.stablecoin_ASA,
         int(get_current_timestamp()),  # Inspection Period Start Date
         int(get_future_timestamp_in_secs(60)),  # Inspection Period End Date
         int(get_future_timestamp_in_secs(120)),  # Moving Date

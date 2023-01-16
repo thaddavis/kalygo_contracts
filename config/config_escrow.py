@@ -8,14 +8,14 @@ indexer_token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 app_id = 71
 wallet_id = "wallet_QWEASD"
 wallet_phrase = ""
-account_a_address = "UQ4TKIHRBPETHRHUCHDZKJJU5ZA2V5RDRSG6PMQVQ6P73JJDXUXGQLXLFM"
-account_a_mnemonic = "enemy wire current peace dinosaur defense miracle nest annual basket reflect casino sibling deer try city daughter finger lesson cricket melody draft domain about section"
-account_b_address = "DLM5NASGA6GGI2UWJ5DIOLKEH47D77KAGQKXIP3DA5XQUZ36GDOHABE42I"
-account_b_mnemonic = "breeze siren occur tornado ocean cost unhappy extra juice hope potato seat business anchor hurry spring away nominee box spread toss defy route ability runway"
-account_c_address = "Z5G6D3YOPKDXKYVOMPCVPPECSWTDLDEGHDF76CORFEHINF5H4S65KDIEMY"
-account_c_mnemonic = "live path cram topic nasty among plastic clutch tip friend resist frozen gown rain put destroy issue afraid delay april expand kid vast absorb demand"
+account_a_address = "NXKXEI52OD57JWVKBDGFXIWA2AWMHRG52IMRGO6CYSQMGGETE36C5DXSYI"
+account_a_mnemonic = "glimpse couch write early jump correct want together flavor match vehicle panther plunge shrug galaxy potato client divide assist into zoo merit spend about bridge"
+account_b_address = "LRRN5NIUW5FM6CGWXBK4LP37TJL232HV5KQ4C45WK373MKVUEYS5EHQN5Y"
+account_b_mnemonic = "inch crazy word soup winter impose pair puzzle resource sphere cable hungry loan move depend forward home increase recycle question citizen mechanic party about that"
+account_c_address = "24EAOWVXMSZ7LAXDYLHPIQ7PXDIO4OMPSJTZXP47YAJ4MTQASCJXPCQ2DI"
+account_c_mnemonic = "oak diagram room element planet output satoshi scrap appear brass core crunch charge drink husband festival fan toy ancient surprise cart cave inquiry absent fee"
 
-stablecoin_ASA = 764
+stablecoin_ASA = 1017
 
 escrow_payment_1 = 1000000
 escrow_payment_2 = 2000000

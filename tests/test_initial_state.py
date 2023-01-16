@@ -26,6 +26,7 @@ def escrow_contract():
         config.escrow_payment_1,  # escrow_payment_1
         config.escrow_payment_2,
         config.total_price,  # total_price
+        config.stablecoin_ASA,
         int(get_current_timestamp()),  # Inspection Period Start Date
         int(get_future_timestamp_in_secs(60)),  # Inspection Period End Date
         int(get_future_timestamp_in_secs(120)),  # Moving Date
@@ -53,6 +54,7 @@ def test_initial_state(escrow_contract):
     assert app_info_formatted["global_escrow_payment_1"] == 1000000
     assert app_info_formatted["global_escrow_payment_2"] == 2000000
     assert app_info_formatted["global_escrow_total"] == 3000000
+    assert app_info_formatted["global_asa_id"] == config.stablecoin_ASA
 
     app_address = logic.get_application_address(app_id)
     res = Algod.getClient().account_info(app_address)

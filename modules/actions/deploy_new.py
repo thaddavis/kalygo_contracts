@@ -14,7 +14,7 @@ from modules.AlgodClient import Algod
 
 local_ints = 0
 local_bytes = 0
-global_ints = 10
+global_ints = 11
 global_bytes = 3
 
 
@@ -26,6 +26,7 @@ def deploy_new(
     escrow_payment_1: int = config.escrow_payment_1,
     escrow_payment_2: int = config.escrow_payment_2,
     total_price: int = config.total_price,
+    asa_id: int = config.stablecoin_ASA,
     inspection_start: int = int(get_current_timestamp()),
     inspection_end: int = int(get_future_timestamp_in_secs(60)),
     moving_date=int(get_future_timestamp_in_secs(240)),
@@ -77,6 +78,7 @@ def deploy_new(
         closing_date,  # 8 GLOBAL_CLOSING_DATE, Btoi(Txn.application_args[8]) # uint64
         free_funds_date,  # 9 GLOBAL_FREE_FUNDS_DATE, Btoi(Txn.application_args[9]) # uint64,
         enable_time_checks,  # 10 GLOBAL_TIME_CHECK_ENABLED
+        asa_id,  # 11 GLOBAL_ASA_ID, Btoi(Txn.application_args[11]) # uint64
     ]
 
     on_complete = transaction.OnComplete.NoOpOC.real
