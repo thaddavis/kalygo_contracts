@@ -4,3 +4,4 @@ from .optout_from_ASA import optout_from_ASA
 from .withdraw_ASA import withdraw_ASA
 from .buyer_set_pullout import buyer_set_pullout
 from .buyer_set_arbitration import buyer_set_arbitration
+from .seller_set_arbitration import seller_set_arbitration

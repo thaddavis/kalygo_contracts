@@ -11,6 +11,7 @@ def initialize_contract():
         App.globalPut(GLOBAL_ASA_ID, Btoi(Txn.application_args[11])),  # uint64
         App.globalPut(GLOBAL_BUYER_PULLOUT_FLAG, Int(0)),  # uint64
         App.globalPut(GLOBAL_BUYER_ARBITRATION_FLAG, Int(0)),  # uint64
+        App.globalPut(GLOBAL_SELLER_ARBITRATION_FLAG, Int(0)),  # uint64
         App.globalPut(GLOBAL_CREATOR, Txn.sender()),  # byteslice
         App.globalPut(GLOBAL_BUYER, Txn.application_args[0]),  # byteslice
         App.globalPut(GLOBAL_SELLER, Txn.application_args[1]),  # byteslice

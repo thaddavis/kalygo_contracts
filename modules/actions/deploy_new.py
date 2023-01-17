@@ -14,7 +14,7 @@ from modules.AlgodClient import Algod
 
 local_ints = 0
 local_bytes = 0
-global_ints = 12
+global_ints = 13
 global_bytes = 3
 
 
