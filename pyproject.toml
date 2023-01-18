@@ -25,6 +25,8 @@ optin_account = "scripts.optin_account:main"
 optin_contract = "scripts.optin_contract:main"
 optout_contract = "scripts.optout_contract:main"
 print_ASA_holders = "scripts.print_ASA_holders:main"
+print_ASA_info = "scripts.print_ASA_info:main"
+clawback_ASA = "scripts.clawback_ASA:main"
 get_contract_balance = "scripts.get_contract_balance:main"
 get_account_assets = "scripts.get_account_assets:main"
 

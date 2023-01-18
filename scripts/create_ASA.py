@@ -3,7 +3,7 @@ from algosdk.v2client import algod
 from algosdk.future import transaction
 from algosdk import constants
 import config.config_escrow as config
-from helpers.utils import get_private_key_from_mnemonic
+from modules.helpers.utils import get_private_key_from_mnemonic
 from modules.AlgodClient import Algod
 
 account_private_key = get_private_key_from_mnemonic(config.account_c_mnemonic)
